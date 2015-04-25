@@ -1,0 +1,94 @@
+@import "compass/css3";
+
+
+$perspective:100000000px;
+$scale:1;
+$rotationX: 45deg;
+$rotationY: 0;
+$rotationZ: 0;
+
+$steps:2; //has to match js
+
+$blur-deviation:0.4;
+$color:#222;
+@import url(http://fonts.googleapis.com/css?family=Bitter:400,700,400italic);
+@import url(http://fonts.googleapis.com/css?family=Syncopate:400,700);
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(http://fonts.googleapis.com/css?family=Tangerine:400,700);
+@import url(http://fonts.googleapis.com/css?family=Simonetta:400,900,400italic,900italic&subset=latin,latin-ext);
+@import url(http://fonts.googleapis.com/css?family=Italianno&subset=latin,latin-ext);
+@import url(http://fonts.googleapis.com/css?family=Philosopher:400,700,400italic,700italic&subset=latin,cyrillic);
+body{
+  //overflow:hidden;
+  background:linear-gradient(180deg,rgba(0,0,0,0.1),rgba(0,0,0,0.2)); 
+  //background:linear-gradient(70deg,rgba(0,0,0,0.3),rgba(0,0,0,0.1),rgba(0,0,0,0)), linear-gradient(30deg,#fafafa,#fcfcfc,#ddd);
+  background-size:100vw 100vh;
+  background-attachment:fixed;
+  //-webkit-filter:blur(0.5px); 
+}
+.realistic{
+  color:$color;
+  font-size:30px;
+  position:absolute;
+  top:-110px;
+  //top:-200px;
+  left:0;
+  //-webkit-filter:contrast(7);
+  opacity:1/(($steps*2));
+  transform-origin:50% 450px; 
+  max-width:60%;
+  margin-left: 20%;
+  margin-top: 50px;
+  margin-bottom:15px;
+  transform: scale($scale,$scale) perspective($perspective) rotateY($rotationY) rotateX($rotationX); 
+  text-shadow:0 0 3px transparentize($color,0.4),0 0 1px transparentize($color,0.8);
+}
+p{
+  text-indent:60px;
+  text-align:justify;
+  display: flex;
+  align-items: center;
+  font-family:'Simonetta', italic;
+  font-weight:400px;
+  
+}
+h1{
+  font-size:130px;
+  text-align:center;
+  font-family:"Tangerine", cursive;
+  font-weight:700px;
+  margin:5px auto
+}
+.realistic.blur{
+  pointer-events:none;
+}
+$transform:scale($scale,$scale) perspective($perspective);
+$step:$blur-deviation/$steps;
+@for $i from 1 through $steps{
+  $cur:$step*($i);
+  .realistic.blur-top:nth-child(#{$i}){
+    transform: $transform rotateY($rotationY + $cur) rotateX($rotationX + $cur);
+  }
+  .realistic.blur-bottom:nth-child(#{$i}){
+    transform: $transform rotateY($rotationY - $cur) rotateX($rotationX - $cur);
+  }
+}
+.realistic.blur1{
+  transform: scale($scale,$scale) perspective($perspective) rotateY($rotationY + $blur-deviation) rotateX($rotationX + $blur-deviation);
+}
+
+.realistic.blur2{
+  transform: scale($scale,$scale) perspective($perspective) rotateY($rotationY - $blur-deviation) rotateX($rotationX - $blur-deviation) ;
+}
+
+.overlay{
+  position:absolute;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  background:linear-gradient(transparentize(#eee,0.7),transparentize(#eee,1));
+  z-index:99;
+  pointer-events:none; 
+}
+// // // // // // Realistic Text Adaptation by bb00 // // // // // // Filler text site.

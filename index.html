@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>CodePen - Kinda Realistic Text (test 1)</title>
+
+  <style>
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background-color:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}h1{font-size:2em;margin:0.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace, monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type="checkbox"],input[type="radio"]{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding:0}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height:auto}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:0.35em 0.625em 0.75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:bold}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
+
+</style>
+
+    <style>
+@import url(http://fonts.googleapis.com/css?family=Bitter:400,700,400italic);
+@import url(http://fonts.googleapis.com/css?family=Syncopate:400,700);
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(http://fonts.googleapis.com/css?family=Tangerine:400,700);
+@import url(http://fonts.googleapis.com/css?family=Simonetta:400,900,400italic,900italic&subset=latin,latin-ext);
+@import url(http://fonts.googleapis.com/css?family=Italianno&subset=latin,latin-ext);
+@import url(http://fonts.googleapis.com/css?family=Philosopher:400,700,400italic,700italic&subset=latin,cyrillic);
+body {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2));
+  background-size: 100vw 100vh;
+  background-attachment: fixed;
+}
+
+.realistic {
+  color: #222;
+  font-size: 30px;
+  position: absolute;
+  top: -110px;
+  left: 0;
+  opacity: 0.25;
+  transform-origin: 50% 450px;
+  max-width: 60%;
+  margin-left: 20%;
+  margin-top: 50px;
+  margin-bottom: 15px;
+  transform: scale(1, 1) perspective(100000000px) rotateY(0) rotateX(45deg);
+  text-shadow: 0 0 3px rgba(34, 34, 34, 0.6), 0 0 1px rgba(34, 34, 34, 0.2);
+}
+
+p {
+  text-indent: 60px;
+  text-align: justify;
+  display: flex;
+  align-items: center;
+  font-family: 'Simonetta', italic;
+  font-weight: 400px;
+}
+
+h1 {
+  font-size: 130px;
+  text-align: center;
+  font-family: "Tangerine", cursive;
+  font-weight: 700px;
+  margin: 5px auto;
+}
+
+.realistic.blur {
+  pointer-events: none;
+}
+
+.realistic.blur-top:nth-child(1) {
+  transform: scale(1, 1) perspective(100000000px) rotateY(0.2) rotateX(45.2deg);
+}
+
+.realistic.blur-bottom:nth-child(1) {
+  transform: scale(1, 1) perspective(100000000px) rotateY(-0.2) rotateX(44.8deg);
+}
+
+.realistic.blur-top:nth-child(2) {
+  transform: scale(1, 1) perspective(100000000px) rotateY(0.4) rotateX(45.4deg);
+}
+
+.realistic.blur-bottom:nth-child(2) {
+  transform: scale(1, 1) perspective(100000000px) rotateY(-0.4) rotateX(44.6deg);
+}
+
+.realistic.blur1 {
+  transform: scale(1, 1) perspective(100000000px) rotateY(0.4) rotateX(45.4deg);
+}
+
+.realistic.blur2 {
+  transform: scale(1, 1) perspective(100000000px) rotateY(-0.4) rotateX(44.6deg);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(238, 238, 238, 0.3), rgba(238, 238, 238, 0));
+  z-index: 99;
+  pointer-events: none;
+}
+
+</style>
+
+    <script src="js/prefixfree.min.js"></script>
+
+</head>
+
+<body>
+
+  <div class="realistic original" contenteditable>
+  <h1>Realistic Text</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus magna augue, lobortis ut varius sit amet, laoreet id ligula. Curabitur fringilla vehicula odio, quis volutpat turpis pharetra efficitur. Integer vitae luctus orci. Suspendisse congue nec orci pellentesque interdum. Donec eu venenatis dolor. Donec eget est ex. Nullam rhoncus auctor nunc, sed eleifend nunc porttitor vitae. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras vel ligula vitae turpis molestie facilisis. Vestibulum fringilla scelerisque auctor.</p>
+  <p>Sed ut viverra libero. Nunc tincidunt lacinia odio, et aliquet diam rhoncus eu. Integer consequat magna et suscipit pellentesque. Duis nisi turpis, posuere non laoreet volutpat, fringilla a quam. Donec est nisi, finibus et accumsan nec, hendrerit id urna. Quisque tempus lobortis egestas. In rutrum sit amet enim quis facilisis. Suspendisse tincidunt ipsum magna, efficitur cursus augue blandit vel. Suspendisse blandit eget neque id vehicula. Quisque at iaculis urna. Aenean odio erat, condimentum consectetur pharetra quis, convallis id dolor. Curabitur sodales faucibus enim. Curabitur a elit ut urna fermentum rhoncus a molestie mi. Sed varius lacus ex, a fermentum odio pharetra sit amet.</p>
+
+  <p>Morbi finibus rhoncus justo, vitae imperdiet lacus fringilla in. Ut sodales nisl vitae urna vulputate dignissim. Curabitur dignissim ultrices felis, id feugiat ante mollis eget. Vestibulum euismod dapibus massa, id lacinia tortor commodo nec. Vestibulum interdum fermentum velit ac vestibulum. Nullam at elit tortor. In interdum tristique congue. Donec posuere ultricies tortor et lacinia. Etiam tincidunt dui rutrum felis imperdiet, et cursus nunc finibus. Quisque dictum eu tellus dictum tincidunt. Ut posuere, lorem sed porttitor aliquet, metus ante faucibus erat, vel tempor nisl erat eu erat.</p>
+  <p>Vestibulum dictum odio tellus, vel viverra sem iaculis sit amet. Sed nulla libero, ornare at magna vel, posuere mollis erat. Etiam nec mi vitae purus tempor lobortis vel et dui. Morbi quis nisl nibh. Donec pulvinar felis vitae ornare finibus. Sed massa lacus, mattis ac augue non, tempor ornare dolor. Vestibulum semper gravida nunc eu semper. Nunc semper metus eu aliquam vehicula. Praesent eleifend eros ac sem vulputate imperdiet. Aliquam ultricies mattis placerat. Cras massa elit, lacinia ut justo sodales, mollis commodo dolor. Nullam condimentum porttitor blandit.</p>
+</div>
+
+<div class="overlay"></div>
+
+  <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
+
+  <script src="js/index.js"></script>
+
+</body>
+
+</html>
